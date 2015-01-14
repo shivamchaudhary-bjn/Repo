@@ -12,7 +12,7 @@ typedef struct root {
 struct pt {
 	bool operator()(root a,root b)
 	{
-		return (a.key > b.key);
+		return (a.key < b.key);
 	}
 };
 void dijkstra(vector<node> v[],int ver,int edge,int s)
@@ -31,10 +31,11 @@ void dijkstra(vector<node> v[],int ver,int edge,int s)
 	ans[s].key = 0;
 	
 	q.push(ans[s]);
-	cout << "MST\n\n";
+	cout << "MST\n";
 	while(!q.empty()) {
 		root temp = q.top();
-		//cout << temp.val << " " << temp.key << endl;// << temp.dest << " " << temp.weight << endl;
+		//cout << temp.val << " " << temp.key << endl;
+		//cout << temp.dest << " " << temp.weight << endl;
 		q.pop();
 		//sum += temp.key;
 		vis[temp.val] = 1;
